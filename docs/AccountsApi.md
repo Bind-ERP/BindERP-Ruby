@@ -4,14 +4,14 @@ All URIs are relative to *http://api.bind.com.mx*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**accounts_add_client**](AccountsApi.md#accounts_add_client) | **POST** /api/Accounts | Agregar Cuenta Contable
+[**accounts_add_account**](AccountsApi.md#accounts_add_account) | **POST** /api/Accounts | Agregar Cuenta Contable
 [**accounts_delete_account**](AccountsApi.md#accounts_delete_account) | **DELETE** /api/Accounts/{id} | Borrar Cuenta Contable
+[**accounts_get**](AccountsApi.md#accounts_get) | **GET** /api/Accounts | Obtiene la lista de cuentas contables.
 [**accounts_get_account_categories**](AccountsApi.md#accounts_get_account_categories) | **GET** /api/AccountCategories | Obtiene las categorías de cuentas contables.
-[**accounts_get_price_lists**](AccountsApi.md#accounts_get_price_lists) | **GET** /api/Accounts | Obtiene la lista de cuentas contables.
 
 
-# **accounts_add_client**
-> String accounts_add_client(new_account)
+# **accounts_add_account**
+> String accounts_add_account(new_account)
 
 Agregar Cuenta Contable
 
@@ -29,10 +29,10 @@ new_account = SwaggerClient::NewAccount.new # NewAccount |
 
 begin
   #Agregar Cuenta Contable
-  result = api_instance.accounts_add_client(new_account)
+  result = api_instance.accounts_add_account(new_account)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling AccountsApi->accounts_add_client: #{e}"
+  puts "Exception when calling AccountsApi->accounts_add_account: #{e}"
 end
 ```
 
@@ -107,6 +107,60 @@ No authorization required
 
 
 
+# **accounts_get**
+> AccountPage accounts_get(opts)
+
+Obtiene la lista de cuentas contables.
+
+
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+
+api_instance = SwaggerClient::AccountsApi.new
+
+opts = { 
+  filter: "filter_example", # String | Filters the results, based on a Boolean condition.
+  orderby: "orderby_example", # String | Sorts the results.
+  top: 56, # Integer | Returns only the first n results.
+  skip: 56 # Integer | Skips the first n results.
+}
+
+begin
+  #Obtiene la lista de cuentas contables.
+  result = api_instance.accounts_get(opts)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling AccountsApi->accounts_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter** | **String**| Filters the results, based on a Boolean condition. | [optional] 
+ **orderby** | **String**| Sorts the results. | [optional] 
+ **top** | **Integer**| Returns only the first n results. | [optional] 
+ **skip** | **Integer**| Skips the first n results. | [optional] 
+
+### Return type
+
+[**AccountPage**](AccountPage.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json
+
+
+
 # **accounts_get_account_categories**
 > AccountCategories accounts_get_account_categories
 
@@ -145,60 +199,6 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml
-
-
-
-# **accounts_get_price_lists**
-> AccountPage accounts_get_price_lists(opts)
-
-Obtiene la lista de cuentas contables.
-
-
-
-### Example
-```ruby
-# load the gem
-require 'swagger_client'
-
-api_instance = SwaggerClient::AccountsApi.new
-
-opts = { 
-  filter: "filter_example", # String | Filters the results, based on a Boolean condition.
-  orderby: "orderby_example", # String | Sorts the results.
-  top: 56, # Integer | Returns only the first n results.
-  skip: 56 # Integer | Skips the first n results.
-}
-
-begin
-  #Obtiene la lista de cuentas contables.
-  result = api_instance.accounts_get_price_lists(opts)
-  p result
-rescue SwaggerClient::ApiError => e
-  puts "Exception when calling AccountsApi->accounts_get_price_lists: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filter** | **String**| Filters the results, based on a Boolean condition. | [optional] 
- **orderby** | **String**| Sorts the results. | [optional] 
- **top** | **Integer**| Returns only the first n results. | [optional] 
- **skip** | **Integer**| Skips the first n results. | [optional] 
-
-### Return type
-
-[**AccountPage**](AccountPage.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, text/json
 
 
 

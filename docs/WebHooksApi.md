@@ -5,7 +5,7 @@ All URIs are relative to *http://api.bind.com.mx*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**web_hooks_add_web_hook_subscriptions**](WebHooksApi.md#web_hooks_add_web_hook_subscriptions) | **POST** /api/WebHookSubscriptions | Suscribirse a un WebHook
-[**web_hooks_delete_web_hook_subscriptio_by_id**](WebHooksApi.md#web_hooks_delete_web_hook_subscriptio_by_id) | **DELETE** /api/WebHookSubscriptions | Borrar suscripción a WebHook
+[**web_hooks_delete_web_hook_subscription_by_id**](WebHooksApi.md#web_hooks_delete_web_hook_subscription_by_id) | **DELETE** /api/WebHookSubscriptions | Borrar suscripción a WebHook
 [**web_hooks_edit_web_hook_subscription**](WebHooksApi.md#web_hooks_edit_web_hook_subscription) | **PUT** /api/WebHookSubscriptions | Editar suscripción a WebHook
 [**web_hooks_get_web_hook_sample_data**](WebHooksApi.md#web_hooks_get_web_hook_sample_data) | **GET** /api/WebHooks/{eventID} | Obtiene un ejemplo del modelo de datos que envía el WebHook.
 [**web_hooks_get_web_hook_subscriptions**](WebHooksApi.md#web_hooks_get_web_hook_subscriptions) | **GET** /api/WebHookSubscriptions | Obtiene la lista de su suscripciones a WebHooks
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **web_hooks_add_web_hook_subscriptions**
-> Object web_hooks_add_web_hook_subscriptions(web_hook_subscription)
+> Object web_hooks_add_web_hook_subscriptions(new_web_hook_subscription)
 
 Suscribirse a un WebHook
 
@@ -26,12 +26,12 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::WebHooksApi.new
 
-web_hook_subscription = SwaggerClient::NewWebHookSubscription.new # NewWebHookSubscription | 
+new_web_hook_subscription = SwaggerClient::NewWebHookSubscription.new # NewWebHookSubscription | 
 
 
 begin
   #Suscribirse a un WebHook
-  result = api_instance.web_hooks_add_web_hook_subscriptions(web_hook_subscription)
+  result = api_instance.web_hooks_add_web_hook_subscriptions(new_web_hook_subscription)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling WebHooksApi->web_hooks_add_web_hook_subscriptions: #{e}"
@@ -42,7 +42,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **web_hook_subscription** | [**NewWebHookSubscription**](NewWebHookSubscription.md)|  | 
+ **new_web_hook_subscription** | [**NewWebHookSubscription**](NewWebHookSubscription.md)|  | 
 
 ### Return type
 
@@ -59,8 +59,8 @@ No authorization required
 
 
 
-# **web_hooks_delete_web_hook_subscriptio_by_id**
-> web_hooks_delete_web_hook_subscriptio_by_id(id)
+# **web_hooks_delete_web_hook_subscription_by_id**
+> web_hooks_delete_web_hook_subscription_by_id(id)
 
 Borrar suscripción a WebHook
 
@@ -78,9 +78,9 @@ id = "id_example" # String |
 
 begin
   #Borrar suscripción a WebHook
-  api_instance.web_hooks_delete_web_hook_subscriptio_by_id(id)
+  api_instance.web_hooks_delete_web_hook_subscription_by_id(id)
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling WebHooksApi->web_hooks_delete_web_hook_subscriptio_by_id: #{e}"
+  puts "Exception when calling WebHooksApi->web_hooks_delete_web_hook_subscription_by_id: #{e}"
 end
 ```
 
@@ -119,7 +119,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::WebHooksApi.new
 
-web_hook_subscription = SwaggerClient::NewWebHookSubscription.new # NewWebHookSubscription | 
+web_hook_subscription = SwaggerClient::EditWebHookSubscription.new # EditWebHookSubscription | 
 
 
 begin
@@ -134,7 +134,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **web_hook_subscription** | [**NewWebHookSubscription**](NewWebHookSubscription.md)|  | 
+ **web_hook_subscription** | [**EditWebHookSubscription**](EditWebHookSubscription.md)|  | 
 
 ### Return type
 

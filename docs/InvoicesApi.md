@@ -4,11 +4,11 @@ All URIs are relative to *http://api.bind.com.mx*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**invoices_add_invoice**](InvoicesApi.md#invoices_add_invoice) | **POST** /api/Invoices | Agregar factura
-[**invoices_add_payment**](InvoicesApi.md#invoices_add_payment) | **POST** /api/Invoices/Payment | Registrar pago a factura
+[**invoices_add_invoice**](InvoicesApi.md#invoices_add_invoice) | **POST** /api/Invoices | Agregar Venta
+[**invoices_add_payment**](InvoicesApi.md#invoices_add_payment) | **POST** /api/Invoices/Payment | Registrar pago a venta
 [**invoices_delete_invoice**](InvoicesApi.md#invoices_delete_invoice) | **DELETE** /api/Invoices/{id} | Eliminar factura
-[**invoices_get_by_id**](InvoicesApi.md#invoices_get_by_id) | **GET** /api/Invoices/{id} | Obtiene los detalles de una venta
-[**invoices_get_by_number**](InvoicesApi.md#invoices_get_by_number) | **GET** /api/Invoices | Obtiene los detalles de una venta
+[**invoices_get**](InvoicesApi.md#invoices_get) | **GET** /api/Invoices | Obtiene la lista de ventas.
+[**invoices_get_by_number**](InvoicesApi.md#invoices_get_by_number) | **GET** /api/Invoices/{idOrNumber} | Obtiene los detalles de una venta por número
 [**invoices_get_pdf**](InvoicesApi.md#invoices_get_pdf) | **GET** /api/Invoices/{id}/pdf | Obtener el PDF de una venta
 [**invoices_get_xml**](InvoicesApi.md#invoices_get_xml) | **GET** /api/Invoices/{id}/xml | Obtener el XML de una venta
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 # **invoices_add_invoice**
 > String invoices_add_invoice(new_invoice)
 
-Agregar factura
+Agregar Venta
 
 
 
@@ -31,7 +31,7 @@ new_invoice = SwaggerClient::NewInvoice.new # NewInvoice |
 
 
 begin
-  #Agregar factura
+  #Agregar Venta
   result = api_instance.invoices_add_invoice(new_invoice)
   p result
 rescue SwaggerClient::ApiError => e
@@ -63,7 +63,7 @@ No authorization required
 # **invoices_add_payment**
 > invoices_add_payment(new_payment)
 
-Registrar pago a factura
+Registrar pago a venta
 
 
 
@@ -78,7 +78,7 @@ new_payment = SwaggerClient::NewPayment.new # NewPayment |
 
 
 begin
-  #Registrar pago a factura
+  #Registrar pago a venta
   api_instance.invoices_add_payment(new_payment)
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling InvoicesApi->invoices_add_payment: #{e}"
@@ -152,12 +152,12 @@ No authorization required
 
 
 
-# **invoices_get_by_id**
-> InvoiceDetails invoices_get_by_id(id)
+# **invoices_get**
+> InvoiceListItemPage invoices_get(opts)
 
-Obtiene los detalles de una venta
+Obtiene la lista de ventas.
 
-
+El filtro es opcional
 
 ### Example
 ```ruby
@@ -166,15 +166,19 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::InvoicesApi.new
 
-id = "id_example" # String | ID
-
+opts = { 
+  filter: "filter_example", # String | Filters the results, based on a Boolean condition.
+  orderby: "orderby_example", # String | Sorts the results.
+  top: 56, # Integer | Returns only the first n results.
+  skip: 56 # Integer | Skips the first n results.
+}
 
 begin
-  #Obtiene los detalles de una venta
-  result = api_instance.invoices_get_by_id(id)
+  #Obtiene la lista de ventas.
+  result = api_instance.invoices_get(opts)
   p result
 rescue SwaggerClient::ApiError => e
-  puts "Exception when calling InvoicesApi->invoices_get_by_id: #{e}"
+  puts "Exception when calling InvoicesApi->invoices_get: #{e}"
 end
 ```
 
@@ -182,11 +186,14 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**String**](.md)| ID | 
+ **filter** | **String**| Filters the results, based on a Boolean condition. | [optional] 
+ **orderby** | **String**| Sorts the results. | [optional] 
+ **top** | **Integer**| Returns only the first n results. | [optional] 
+ **skip** | **Integer**| Skips the first n results. | [optional] 
 
 ### Return type
 
-[**InvoiceDetails**](InvoiceDetails.md)
+[**InvoiceListItemPage**](InvoiceListItemPage.md)
 
 ### Authorization
 
@@ -195,14 +202,14 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/json, text/json
 
 
 
 # **invoices_get_by_number**
-> InvoiceDetails invoices_get_by_number(number)
+> InvoiceDetails invoices_get_by_number(id_or_number)
 
-Obtiene los detalles de una venta
+Obtiene los detalles de una venta por número
 
 
 
@@ -213,12 +220,12 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::InvoicesApi.new
 
-number = "number_example" # String | Serie y Número
+id_or_number = "id_or_number_example" # String | 
 
 
 begin
-  #Obtiene los detalles de una venta
-  result = api_instance.invoices_get_by_number(number)
+  #Obtiene los detalles de una venta por número
+  result = api_instance.invoices_get_by_number(id_or_number)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling InvoicesApi->invoices_get_by_number: #{e}"
@@ -229,7 +236,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **number** | **String**| Serie y Número | 
+ **id_or_number** | **String**|  | 
 
 ### Return type
 
@@ -247,7 +254,7 @@ No authorization required
 
 
 # **invoices_get_pdf**
-> Object invoices_get_pdf(id)
+> File invoices_get_pdf(id)
 
 Obtener el PDF de una venta
 
@@ -280,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -289,7 +296,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 
 

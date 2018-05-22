@@ -3,8 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**external_id** | **String** |  | [optional] 
-**external_id_type** | **Integer** |  | [optional] 
 **comment** | **String** |  | 
 **start_date** | **DateTime** |  | 
 **end_date** | **DateTime** |  | 
@@ -15,5 +13,7 @@ Name | Type | Description | Notes
 **repeat_interval** | **Integer** |  | [optional] 
 **repeat_type** | **Integer** |  | [optional] 
 **repetitions** | **Integer** |  | [optional] 
+**external_id** | **String** |  | [optional] 
+**external_id_type** | **Integer** |  | [optional] 
 
 

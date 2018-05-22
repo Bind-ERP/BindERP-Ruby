@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **credit_amount** | **Float** |  | 
 **price_list_id** | **String** |  | 
 **accounting_number** | **String** |  | 
+**address** | [**NewAddress**](NewAddress.md) |  | 
 **email** | **String** |  | [optional] 
 **payment_method** | **Integer** |  | [optional] 
 **payment_term** | **Integer** |  | [optional] 
@@ -17,7 +18,6 @@ Name | Type | Description | Notes
 **sales_employee_id** | **String** |  | [optional] 
 **credit_employee_id** | **String** |  | [optional] 
 **comment** | **String** |  | [optional] 
-**address** | [**NewAddress**](NewAddress.md) |  | [optional] 
 **telephone** | **String** |  | [optional] 
 **account_number** | **String** |  | [optional] 
 **default_discount** | **Float** |  | [optional] 

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
+**uuid** | **String** |  | [optional] 
 **series** | **String** |  | [optional] 
 **number** | **Integer** |  | [optional] 
 **client_id** | **String** |  | [optional] 

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **title** | **String** |  | 
 **price** | **Float** |  | 
-**vat** | **Float** |  | [optional] 
 **qty** | **Float** |  | 
+**vat** | **Float** |  | [optional] 
 **comments** | **String** |  | [optional] 
 **vat_exempt** | **BOOLEAN** |  | [optional] 
 **index_number** | **Integer** |  | [optional] 

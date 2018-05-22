@@ -25,7 +25,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::ProspectsApi.new
 
-new_prospect = SwaggerClient::Prospect.new # Prospect | 
+new_prospect = SwaggerClient::NewProspect.new # NewProspect | 
 
 
 begin
@@ -41,7 +41,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_prospect** | [**Prospect**](Prospect.md)|  | 
+ **new_prospect** | [**NewProspect**](NewProspect.md)|  | 
 
 ### Return type
 
@@ -118,7 +118,7 @@ require 'swagger_client'
 
 api_instance = SwaggerClient::ProspectsApi.new
 
-prospect = SwaggerClient::Prospect.new # Prospect | 
+prospect = SwaggerClient::EditProspect.new # EditProspect | 
 
 
 begin
@@ -133,7 +133,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prospect** | [**Prospect**](Prospect.md)|  | 
+ **prospect** | [**EditProspect**](EditProspect.md)|  | 
 
 ### Return type
 

@@ -25,5 +25,6 @@ Name | Type | Description | Notes
 **default_discount** | **Float** |  | [optional] 
 **client_source** | **String** |  | [optional] 
 **account** | **String** |  | [optional] 
+**addresses** | **Array&lt;String&gt;** |  | [optional] 
 
 
